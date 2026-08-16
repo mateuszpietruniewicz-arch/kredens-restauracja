@@ -305,6 +305,24 @@
 							});
 						}
 					});
+
+					// Galeria: obrazki widoczne w DOM mają loading="lazy" (nie pobierają się,
+					// dopóki karta nie zbliży się do viewportu), więc przy szybkim scrollu
+					// klasa "missing" (dodawana przez onerror na <img>) czasem nie zdąży się
+					// pojawić, zanim karta wejdzie w widok — widać wtedy przez chwilę pustą/
+					// zepsutą kartę zamiast fallbacku. Niezależna, "chętna" sonda (poza DOM,
+					// bez loading="lazy") sprawdza dostępność pliku od razu po wczytaniu
+					// strony, więc stan "missing" jest znany na długo przed dotarciem
+					// użytkownika do sekcji, niezależnie od tempa przewijania.
+						document.querySelectorAll('#gallery .gallery-item').forEach(function (item) {
+							var img = item.querySelector('img');
+							if (!img) return;
+							var probe = new Image();
+							probe.onerror = function () {
+								item.classList.add('missing');
+							};
+							probe.src = img.getAttribute('src');
+						});
 				});
 			</script>
 

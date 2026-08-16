@@ -470,17 +470,36 @@
 			opacity: 1;
 		}
 
-/* ===== Szerokie ekrany (>1800px) ===== */
+/* ===== Szerokie ekrany (>1800px) =====
+   Domyślny .container szablonu (main.css) jest ograniczony do 70em (~1400px)
+   niezależnie od szerokości ekranu — na bardzo szerokich monitorach treść
+   sekcji opartych o .container (rozdział 1, galeria, menu, "Dlaczego
+   Kredens", CTA, stopka) zostaje wtedy wąskim paskiem otoczonym dużym,
+   płaskim, ciemnym/kremowym marginesem po obu stronach. Poszerzamy
+   kontener i dopasowujemy elementy, które go nie używają (hero, panele
+   boczne rozdziałów 2/3), żeby treść realnie wypełniała ekran. */
 
 	@media screen and (min-width: 1800px) {
 
-		#menu .container {
-			max-width: 76em;
+		.container {
+			width: 90em;
+		}
+
+		#banner .content header h2 {
+			font-size: 3.4em;
+		}
+
+		#banner .content header p {
+			font-size: 1.4em;
 		}
 
 		.spotlight.left .content,
 		.spotlight.right .content {
-			width: 32em;
+			width: 38em;
+		}
+
+		#gallery .gallery-grid {
+			gap: 1.5em;
 		}
 
 	}
