@@ -14,8 +14,8 @@ i wejdź na `http://localhost:8000`.
 
 ## Struktura
 
-- `index.html` — cała strona (hero, 3 rozdziały pełnoekranowe, menu, opinie,
-  siatka 6 punktów, CTA, kontakt/stopka)
+- `index.html` — cała strona (hero, 3 rozdziały pełnoekranowe, galeria, menu,
+  opinie, siatka 6 punktów, CTA, kontakt/stopka)
 - `assets/css/main.css` — oryginalny CSS szablonu (nie edytować)
 - `assets/css/custom.css` — nadpisania: paleta KREDENS, fonty, style sekcji
   menu/opinii/kontaktu
@@ -36,7 +36,24 @@ folderu `images/`:
 | `images/rozdzial-2-danie.jpg` | 1920×1080 lub większe, poziome | Danie główne z bliska (np. kaczka, polędwiczki), elegancko podane |
 | `images/rozdzial-3-detal.jpg` | 1920×1080 lub większe, poziome | Detal sali — kredens z porcelaną, świecznik, nakrycie stołu |
 
-Po wgraniu zdjęć zrób `git add images && git commit -m "Dodaj zdjęcia" && git push`
+### Galeria (sekcja `#gallery`, opcjonalna)
+
+Siatka 6 zdjęć między rozdziałem 3 a menu. Dopóki plików nie ma, sekcja sama
+pokazuje czytelny placeholder (nazwa pliku + opis kadru) zamiast zepsutej
+ikonki obrazka — wystarczy wgrać plik o właściwej nazwie do `images/`, bez
+zmian w kodzie, a placeholder automatycznie zniknie i pojawi się zdjęcie.
+
+| Plik | Co ma przedstawiać |
+|---|---|
+| `images/dania-02.jpg` | Danie z bliska, inny kadr niż w rozdziale 2 |
+| `images/dania-03.jpg` | Deser lub przystawka, elegancko podana |
+| `images/dania-04.jpg` | Kieliszek wina albo detal nakrycia stołu |
+| `images/wnetrze-02.jpg` | Sala z innego kąta, stoliki |
+| `images/wnetrze-03.jpg` | Kredens z porcelaną, zbliżenie |
+| `images/wnetrze-04.jpg` | Detal wystroju albo wejście do lokalu |
+
+Po wgraniu zdjęć (hero/rozdziały i/lub galeria) zrób
+`git add images && git commit -m "Dodaj zdjęcia" && git push`
 — strona na GitHub Pages zaktualizuje się automatycznie.
 
 Źródła darmowych zdjęć: [unsplash.com](https://unsplash.com), [pexels.com](https://pexels.com).

@@ -61,27 +61,45 @@
 	}
 
 		#banner:after {
-			background-image: linear-gradient(rgba(28, 23, 18, 0.78), rgba(28, 23, 18, 0.9)), url("images/overlay.png");
+			background-image: linear-gradient(rgba(28, 23, 18, 0.5), rgba(28, 23, 18, 0.68)), url("images/overlay.png");
+		}
+
+		#banner .content header h2,
+		#banner .content header p {
+			text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
 		}
 
 		#banner .content header p {
 			color: #F4EFE6;
 		}
 
+		/* Naprawa kadrowania zdjęcia w okrągłej masce — bez object-fit obraz był
+		   wpisywany wyłącznie przez width:100% (main.css), co przy zdjęciu o innych
+		   proporcjach niż koło zostawiało pusty pas u dołu i przesuwało motyw w górę. */
+		#banner .content .image img {
+			height: 100%;
+			object-fit: cover;
+			object-position: center center;
+		}
+
 /* ===== Rozdziały (spotlight, pełnoekranowe zdjęcia) ===== */
 
 	.spotlight:before {
-		background-image: linear-gradient(rgba(28, 23, 18, 0.4), rgba(28, 23, 18, 0.6)), url("images/overlay.png");
+		background-image: linear-gradient(rgba(28, 23, 18, 0.22), rgba(28, 23, 18, 0.4)), url("images/overlay.png");
 	}
 
 	.spotlight .content {
-		background: rgba(28, 23, 18, 0.93);
+		background: rgba(28, 23, 18, 0.72);
 	}
 
 	.spotlight.style1 .content,
 	.spotlight.style2 .content,
 	.spotlight.style3 .content {
 		border-color: #B08D57;
+	}
+
+	.spotlight .content header h2 {
+		text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
 	}
 
 	.spotlight .content header p,
@@ -122,15 +140,31 @@
 /* ===== Siatka 6 punktów (sekcja "four") ===== */
 
 	#four.wrapper.style1 {
-		background: #1C1712;
+		background: #F4EFE6;
 	}
 
+		#four .label {
+			color: #7A1F3D;
+		}
+
+		#four header.major h2 {
+			color: #1C1712;
+		}
+
+		#four h3 {
+			color: #1C1712;
+		}
+
+		#four p {
+			color: rgba(28, 23, 18, 0.7);
+		}
+
 		#four .icon.solid.alt.major {
-			background: #2A211B;
+			background: #7A1F3D;
 		}
 
 			#four .icon.solid.alt.major:before {
-				color: #B08D57 !important;
+				color: #F4EFE6 !important;
 				text-shadow: none;
 			}
 
@@ -266,11 +300,16 @@
 /* ===== Kontakt / stopka ===== */
 
 	#footer {
-		background: #1C1712;
+		background: #EFE6D6;
+		border-top: solid 1px rgba(28, 23, 18, 0.08);
 	}
 
+		#footer header h2 {
+			color: #1C1712;
+		}
+
 		#footer .contact-details {
-			color: rgba(244, 239, 230, 0.75);
+			color: rgba(28, 23, 18, 0.75);
 			list-style: none;
 			margin: 0 0 2.5em 0;
 			padding: 0;
@@ -281,34 +320,143 @@
 			}
 
 			#footer .contact-details a {
-				color: rgba(244, 239, 230, 0.9);
+				color: #1C1712;
 			}
 
 			#footer .contact-details a:hover {
-				color: #B08D57;
+				color: #7A1F3D;
 			}
 
 		#footer .maps-link {
 			display: inline-block;
 			margin: 0.75em 0 0 0;
+			box-shadow: inset 0 0 0 1px rgba(28, 23, 18, 0.35);
+			color: #1C1712 !important;
 		}
 
+			#footer .maps-link:hover {
+				box-shadow: inset 0 0 0 1px #7A1F3D;
+				color: #7A1F3D !important;
+			}
+
 		#footer .icons .icon.alt:before {
-			color: #1C1712 !important;
-			text-shadow: 1px 0 0 #F4EFE6, -1px 0 0 #F4EFE6, 0 1px 0 #F4EFE6, 0 -1px 0 #F4EFE6;
+			color: #7A1F3D !important;
+			text-shadow: none;
 		}
 
 		#footer .copyright {
-			color: rgba(244, 239, 230, 0.5);
+			color: rgba(28, 23, 18, 0.55);
 		}
+
+			#footer .copyright li {
+				border-left-color: rgba(28, 23, 18, 0.2);
+			}
 
 			#footer .copyright li a {
 				color: inherit;
 			}
 
 			#footer .copyright li a:hover {
-				color: #B08D57;
+				color: #7A1F3D;
 			}
+
+/* ===== Galeria ===== */
+
+	#gallery {
+		background: #F4EFE6;
+		color: #1C1712;
+		padding: 6em 0;
+	}
+
+		#gallery .gallery-header {
+			margin-bottom: 3em;
+			text-align: center;
+		}
+
+			#gallery .gallery-header h2 {
+				color: #1C1712;
+				font-size: 2.5em;
+				margin: 0 0 0.4em 0;
+			}
+
+			#gallery .gallery-header p {
+				color: rgba(28, 23, 18, 0.7);
+				margin: 0;
+			}
+
+		#gallery .gallery-grid {
+			display: grid;
+			gap: 1em;
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		#gallery .gallery-item {
+			aspect-ratio: 4 / 3;
+			background: #EFE6D6;
+			margin: 0;
+			overflow: hidden;
+			position: relative;
+		}
+
+			#gallery .gallery-item img {
+				display: block;
+				height: 100%;
+				object-fit: cover;
+				object-position: center center;
+				width: 100%;
+			}
+
+			#gallery .gallery-item .gallery-fallback {
+				align-items: center;
+				border: dashed 1px rgba(28, 23, 18, 0.3);
+				box-sizing: border-box;
+				color: rgba(28, 23, 18, 0.6);
+				display: none;
+				flex-direction: column;
+				font-size: 0.75em;
+				gap: 0.5em;
+				height: 100%;
+				justify-content: center;
+				padding: 1em;
+				text-align: center;
+				width: 100%;
+			}
+
+				#gallery .gallery-item .gallery-fallback .icon {
+					color: #B08D57;
+					font-size: 1.8em;
+				}
+
+				#gallery .gallery-item .gallery-fallback code {
+					background: rgba(28, 23, 18, 0.06);
+					color: #7A1F3D;
+					font-size: 1.1em;
+					padding: 0.15em 0.5em;
+				}
+
+			#gallery .gallery-item.missing img {
+				display: none;
+			}
+
+			#gallery .gallery-item.missing .gallery-fallback {
+				display: flex;
+			}
+
+		@media screen and (max-width: 980px) {
+
+			#gallery .gallery-grid {
+				grid-template-columns: repeat(2, 1fr);
+			}
+
+		}
+
+		@media screen and (max-width: 480px) {
+
+			#gallery .gallery-grid {
+				grid-template-columns: 1fr;
+			}
+
+		}
 
 /* ===== Zdjęcia — fade-in po załadowaniu ===== */
 
